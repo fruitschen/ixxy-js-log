@@ -6,4 +6,5 @@ setup(name='django-js-log',
       description='A Django app that logs JavaScript errors',
       author='Andy Baker, fruitschen',
       packages=find_packages(),
+      include_package_data=True,      
 )
