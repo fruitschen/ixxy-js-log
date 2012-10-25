@@ -8,7 +8,7 @@ setup(name='django-js-log',
       packages=find_packages(),
       package_data={
           'js_log': [
-            'static',
+            'static/js/*',
           ]
       },
       include_package_data=True,      
