@@ -8,7 +8,7 @@ Usage
 
 pip install git+git://github.com/fruitschen/ixxy-js-log.git#egg=ixxy-js-log
 
-Add 'js_log' into INSTALLED_APPS and syncdb, collectstatic. 
+Add 'js_log' into INSTALLED_APPS and syncdb or migrate, collectstatic. 
 
 Modify urls.py and add: 
 
