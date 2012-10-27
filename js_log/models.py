@@ -1,6 +1,6 @@
 from django.db import models
 
-class Error(models.Model):
+class JSError(models.Model):
     hexdigest = models.CharField(max_length=128)
     first_happened = models.DateTimeField()
     last_happened = models.DateTimeField()

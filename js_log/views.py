@@ -4,7 +4,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from js_log.models import Error
+from js_log.models import JSError as Error
 
 @csrf_exempt
 def log_error(request):
