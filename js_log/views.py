@@ -8,9 +8,11 @@ from js_log.models import Error
 
 @csrf_exempt
 def log_error(request):
-    details =  request.POST.get('details')
-    if not details:
+    if not request.POST.keys():
         return HttpResponse('')
+    details = 'url: %(url)s \nuser agent:%(user_agent)s  \nline number:%(line)s  \nerror message:%(message)s' % request.POST
+    short_message = request.POST.get('message', '')[:128]
+    user_agent = request.POST.get('user_agent', '')[:256]
     m = hashlib.md5()
     m.update(details)
     md5_digest = m.hexdigest()
@@ -23,6 +25,8 @@ def log_error(request):
             last_happened = now,
             details = details,
             number = 1,
+            short_message = short_message,
+            user_agent = user_agent,
         )
         error.save()
     else:
