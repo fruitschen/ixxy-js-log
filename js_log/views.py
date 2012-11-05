@@ -11,6 +11,10 @@ def log_error(request):
     if not request.POST.keys():
         return HttpResponse('')
     details = 'url: %(url)s \nuser agent:%(user_agent)s  \nline number:%(line)s  \nerror message:%(message)s' % request.POST
+    try:
+        details = details.encode('utf8')
+    except:
+        pass #cannot encode error message with utf8, ignore. 
     short_message = request.POST.get('message', '')[:128]
     user_agent = request.POST.get('user_agent', '')[:256]
     m = hashlib.md5()
