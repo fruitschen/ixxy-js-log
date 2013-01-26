@@ -12,6 +12,13 @@ function logError(url, line, message) {
 }
 
 window.onerror = function(message, url, line) {
-    logError(url, line, message);
+    if(url.indexOf(location.hostname)){
+        /* 
+         * Ignore an error if it's not our script.
+         * We get error reports like failed to load facebook script, etc
+         * And errors in third party script or even browser plugins
+         */
+        logError(url, line, message);
+    }
 };
 
